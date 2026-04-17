@@ -4,11 +4,11 @@ A RESTful API for managing notes with full CRUD operations built with Node.js, E
 
 ## Live Demo
 
-**Base URL:** https://notes-app-assignment-0gep.onrender.com
+**Base URL:** https://notes-app-assignment-fpjm.onrender.com
 
 ## Postman Documentation
 
-https://rishab11250-8664884.postman.co/workspace/Rishab's-Workspace~91eef1b1-6e79-4e01-849a-bfcde19fed8d/documentation/50839472-f22e9d9c-0652-4b07-99de-b95140b866b1
+https://documenter.getpostman.com/view/50840741/2sBXqDsNhd
 
 ## API Endpoints
 
