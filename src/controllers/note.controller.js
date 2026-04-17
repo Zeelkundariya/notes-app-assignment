@@ -50,4 +50,17 @@ const getNotesById = async(req,res) =>{
     }
 }
 
-module.exports = { createNote, createBulkNotes, getAllNotes, getNotesById };
+
+//Q-5
+const replaceNote = async(req,res) =>{
+    try{
+        const {title, content, category, isPinned} = req.body;
+        const {id} = req.params;
+        const note = await Note.findByIdAndUpdate(id, {title, content, category, isPinned}, {new: true});
+        res.status(200).json({success: true, message: "Note replaced successfully", data: note});
+    }catch(err){
+        res.status(500).json({success: false, message: "Error replacing note", data: err});
+    }
+}
+
+module.exports = { createNote, createBulkNotes, getAllNotes, getNotesById, replaceNote };
