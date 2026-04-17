@@ -12,4 +12,19 @@ const createNote = async (req, res) => {
     }
 };
 
-module.exports = { createNote };
+
+//Q-2
+const createBulkNotes = async(req,res) =>{
+    try{
+        const {notes} = req.body;
+        const bulkNotes = notes.map(note => new Note(note));
+        await Note.insertMany(bulkNotes);
+        res.status(201).json({success: true, message: `${notes.length} notes created successfully`, data: bulkNotes });
+    }
+    catch(err){
+        res.status(500).json({success: false, message: 'Error creating notes', data: err });
+    }
+}
+
+
+module.exports = { createNote, createBulkNotes };
