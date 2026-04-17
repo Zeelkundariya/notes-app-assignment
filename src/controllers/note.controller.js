@@ -26,5 +26,15 @@ const createBulkNotes = async(req,res) =>{
     }
 }
 
+//Q-3
+const getAllNotes = async (req, res) => {
+    try {
+        const notes = await Note.find();
+        res.status(200).json({success: true, message: 'Notes fetched successfully', data: notes });
+    } 
+    catch (err) {
+        res.status(500).json({success: false, message: 'Error retrieving notes', data: err });
+    }
+};
 
-module.exports = { createNote, createBulkNotes };
+module.exports = { createNote, createBulkNotes, getAllNotes };
