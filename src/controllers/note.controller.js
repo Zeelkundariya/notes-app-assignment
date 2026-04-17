@@ -88,4 +88,16 @@ const deleteNote = async(req,res) =>{
     }
 }
 
-module.exports = { createNote, createBulkNotes, getAllNotes, getNotesById, replaceNote, updateSpecificFields, deleteNote };
+
+//Q-8
+const deleteBulkNotes = async(req,res) =>{
+    try{
+        const {ids} = req.body;
+        const bulkNotes = await Note.deleteMany({_id: {$in: ids}});
+        res.status(200).json({success: true, message: `${bulkNotes.deletedCount} notes deleted successfully`, data: null});
+    }catch(err){
+        res.status(500).json({success: false, message: "Error deleting notes", data: err});
+    }
+}
+
+module.exports = { createNote, createBulkNotes, getAllNotes, getNotesById, replaceNote, updateSpecificFields, deleteNote,deleteBulkNotes };

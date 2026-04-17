@@ -9,6 +9,7 @@ const {
      replaceNote,
      updateSpecificFields,
      deleteNote,
+     deleteBulkNotes
      
 } = require('../controllers/note.controller');
 
@@ -20,6 +21,7 @@ router.get('/', getAllNotes);
 router.get('/:id', getNotesById);
 router.put('/:id', replaceNote);
 router.patch('/:id', updateSpecificFields);
+router.delete('/bulk', deleteBulkNotes);
 router.delete('/:id', deleteNote);
 
 module.exports = router;
